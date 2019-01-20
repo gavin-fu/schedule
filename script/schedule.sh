@@ -7,20 +7,20 @@
 #      Author: gavin, gavinfu@yeah.net
 #     Created: 20190118
 # =============================================================================
-# »·¾³ÅäÖÃ
+# ç¯å¢ƒé…ç½®
 home="$(cd $(dirname $0) 2> /dev/null; pwd)"
 log_home=''
 module_home='${home}/module'
 crontab="${home}/crontab"
 
-# ½Å±¾ÍË³ö»úÖÆ
-fix_timed_exit=true         # ÊÇ·ñ¶¨Ê±ÍË³ö true/false
-exits_date=                 # ÍË³öÈÕ£¬Ä¬ÈÏµ±Ìì
-exits_hour=                 # ÍË³öÊ±£¬Ä¬ÈÏ23Ê±
-exits_minute=               # ÍË³ö·Ö£¬Ä¬ÈÏ59·Ö
+# è„šæœ¬é€€å‡ºæœºåˆ¶
+fix_timed_exit=true         # æ˜¯å¦å®šæ—¶é€€å‡º true/false
+exits_date=                 # é€€å‡ºæ—¥ï¼Œé»˜è®¤å½“å¤©
+exits_hour=                 # é€€å‡ºæ—¶ï¼Œé»˜è®¤23æ—¶
+exits_minute=               # é€€å‡ºåˆ†ï¼Œé»˜è®¤59åˆ†
 
 
-# ²¢·¢µ÷¶ÈÊÇ·ñ´æÔÚÎÊÌâ?
+# å¹¶å‘è°ƒåº¦æ˜¯å¦å­˜åœ¨é—®é¢˜?
 _check_start()
 {
     for (( i=0; i<${#present[@]}; i++)); do
@@ -50,8 +50,8 @@ while true; do
                 script="$(eval echo ${module_home}/${module}/main.sh ${options})"
                 
                 [ ! -d "${log_file%/*}" ] && mkdir -p "${log_file%/*}"
-                printf "$(date +%F\ %H:%M:%S) [INFO] %s\n" "$@" "Start ${module} module batch processing..." >> "$log_file"
-                printf "$(date +%F\ %H:%M:%S) [INFO] %s\n" "$@" "Command: ${script}" >> "$log_file"
+                printf "$(date +%F\ %H:%M:%S) [INFO] %s\n" "Start ${module} module batch processing..." >> "$log_file"
+                printf "$(date +%F\ %H:%M:%S) [INFO] %s\n" "Command: ${script}" >> "$log_file"
                 
                 $script 2>> "$log_file"
             fi
