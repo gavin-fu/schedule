@@ -24,7 +24,7 @@ exits_minute=               # 退出分，默认59分
 _check_start()
 {
     for (( i=0; i<${#present[@]}; i++)); do
-        [[ "$x" = '*' ]] && continue
+        [[ "${items[i]}" = '*' ]] && continue
         echo ${items[i]} |grep -wq ${present[i]}
         [ $? -ne 0 ] && return 1
     done
@@ -56,7 +56,7 @@ while true; do
                 $script 2>> "$log_file"
             fi
         } &
-    done < <(grep -e '^\s*$' -e '^\s*#' "$crontab")
+    done < <(grep -e '^\s*$' -e '^\s*#' -v "$crontab")
     
     sleep 60
 done
