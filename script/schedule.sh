@@ -1,7 +1,7 @@
 #!/bin/env bash
 # =============================================================================
 #        File: schedule.sh           
-#       Usage: nohup ./schedule.sh &> schedule.log
+#       Usage: nohup ./schedule.sh &> schedule.log &
 # Description: ---
 #     Options: ---
 #      Author: gavin, gavin-fu@outlook.com
